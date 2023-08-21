@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DjangoApp</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-success">
+    <br />
+    <h1>&nbsp; ToDo is Ready ...</h1>
+    <br />
+    <div class="bg-dark" style="width: 100%; height: 12vh">
+      <br />
+      <form method="POST" action="/" style="margin-top: 0px; margin-left: 17%">
+        {% csrf_token %} {{form.title}}
+
+        <input
+          name="create task"
+          type="submit"
+          value="  add   "
+          class="bg-success"
+        /><br />
+      </form>
+    </div>
+    <br />
+
+    {% comment %} reading database {% endcomment %} {% for t in task reversed %}
+    <h2 class="form-control bg-warning" style="float: left">
+      {{t.title | title }}
+      <a href="delete/{{t.id}}" style="float: right" class="link-danger"
+        >delete</a
+      >
+      <a
+        href="upgrade/{{t.id}}"
+        style="float: right; margin-right: 10%"
+        class="link-primary"
+        >upgrade</a
+      >
+      <br />
+      <a style="margin: 3%; font-size: small">{{t.time_created}}</a>
+    </h2>
+    {% endfor %}
+    <br /><br /><br />
+    <div style="margin-top: 300px">
+      <a
+        href="https://github.com/Mehdizamanian?tab=repositories"
+        class="link-dark"
+        style="text-decoration: none; width: 100%; text-align: center"
+        ;
+      >
+        <p>© 2023 MehdiZamanian</p></a
+      >
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
